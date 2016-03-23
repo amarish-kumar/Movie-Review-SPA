@@ -19,6 +19,7 @@
     }
   },
   "dependencies": {
+    "EntityFramework.Core": "7.0.0-rc1-final",
     "MovieReviewSPA.Data.Contracts": "1.0.0-*",
     "MovieReviewSPA.Model": "1.0.0-*"
   }

@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNet.Mvc;
+using MovieReviewSPA.Data;
 
 namespace MovieReviewSPA.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private MovieReviewDbContext _dbContext;
+
+        public HomeController(MovieReviewDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public IActionResult Index()
         {
-            return View();
+            var movies = _dbContext.Movies.ToList();
+            return View(movies);
         }
 
         public IActionResult About()

@@ -9,6 +9,7 @@ using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using MovieReviewSPA.Data;
 using MovieReviewSPA.Web.Models;
 using MovieReviewSPA.Web.Services;
 
@@ -43,6 +44,12 @@ namespace MovieReviewSPA.Web
                 .AddSqlServer()
                 .AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
+
+            //Added Movie Review DbSetup
+            services.AddEntityFramework()
+                .AddSqlServer()
+                .AddDbContext<MovieReviewDbContext>(options =>
+                    options.UseSqlServer(Configuration["Data:MovieReviewSPA:ConnectionString"]));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
