@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MovieReviewSPA.Data;
+using MovieReviewSPA.Data.SampleData;
 using MovieReviewSPA.Web.Models;
 using MovieReviewSPA.Web.Services;
 
@@ -60,10 +61,11 @@ namespace MovieReviewSPA.Web
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+            services.AddTransient<InitialData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, InitialData seedDbContext)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -105,6 +107,9 @@ namespace MovieReviewSPA.Web
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //Initiating from here
+            seedDbContext.SeedData();
         }
 
         // Entry point for the application.

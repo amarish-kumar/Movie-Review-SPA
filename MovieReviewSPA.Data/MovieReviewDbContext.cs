@@ -11,5 +11,7 @@ namespace MovieReviewSPA.Data
         }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<MovieReview> MovieReviews { get; set; }
+
+       
     }
 }
