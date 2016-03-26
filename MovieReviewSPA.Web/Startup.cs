@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MovieReviewSPA.Data;
+using MovieReviewSPA.Data.Contracts;
+using MovieReviewSPA.Data.Helpers;
 using MovieReviewSPA.Data.SampleData;
 using MovieReviewSPA.Web.Models;
 using MovieReviewSPA.Web.Services;
@@ -62,6 +64,10 @@ namespace MovieReviewSPA.Web
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
             services.AddTransient<InitialData>();
+            //Added For APIs
+            services.AddScoped<RepositoryFactories,RepositoryFactories>();
+            services.AddScoped<IRepositoryProvider, RepositoryProvider>();
+            services.AddScoped<IMovieReviewUow, MovieReviewUow>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
