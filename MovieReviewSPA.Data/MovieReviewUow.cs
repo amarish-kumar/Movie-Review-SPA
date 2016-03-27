@@ -43,8 +43,6 @@ namespace MovieReviewSPA.Data
         protected void CreateDbContext()
         {
             DbContext = new MovieReviewDbContext();
-            
-            //  DbContext = new MovieReviewDbContext("Data:MovieReviewSPA:ConnectionString");
         }
 
 

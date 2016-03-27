@@ -21,6 +21,6 @@ namespace MovieReviewSPA.Data.Contracts
 
         //Deleting Movie or Review by id
         void Delete(int id);
-
+      
     }
 }

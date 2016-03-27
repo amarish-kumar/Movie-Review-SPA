@@ -78,6 +78,11 @@ namespace MovieReviewSPA.Data
 
             Delete(entity);
         }
+
+      /*  public virtual object Include<TEntity, TProperty>(Func<TEntity, TProperty> p) where TEntity : class
+        {
+            return DbSet;
+        }*/
     }
 
 }
