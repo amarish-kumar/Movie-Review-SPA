@@ -30,7 +30,8 @@
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final",
     "MovieReviewSPA.Data": "1.0.0-*",
     "MovieReviewSPA.Data.Contracts": "1.0.0-*",
-    "MovieReviewSPA.Model": "1.0.0-*"
+    "MovieReviewSPA.Model": "1.0.0-*",
+    "System.Linq": "4.0.1-beta-23516"
   },
 
   "commands": {
