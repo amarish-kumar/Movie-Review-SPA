@@ -52,7 +52,7 @@ namespace MovieReviewSPA.Web.Controllers.API
         }
 
         // Create a new review
-        // POST /api/MovieReview
+        // POST /api/MovieReviews
         [HttpPost("")]
         public int Post(MovieReview review, int Id)
         {
@@ -64,7 +64,7 @@ namespace MovieReviewSPA.Web.Controllers.API
         }
 
         //Delete a review
-        //Delete /api/MovieReview/5
+        //Delete /api/MovieReviews/5
         [HttpDelete("")]
         public HttpResponseMessage Delete(int id)
         {
