@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    ViewBag.InitModule = "moviesApp";
 }
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
@@ -35,7 +36,7 @@
             </div>
         </div>
         <div class="item">
-            <img src="~/images/rsz_transformer.jpg" alt="Microsoft Azure" class="img-responsive" />
+            <img src="~/images/rsz_transformer.jpg" alt="Microsoft Azure" class="img-responsive"/>
             <div class="carousel-caption">
                 <p>
                     Single Page App Using Angular JS, Entity Framework 7 & Web API
@@ -53,50 +54,5 @@
     </a>
 </div>
 
-<div class="row" ng-controller="moviesController">
-    <div class="col-md-12">
-        <h2>{{heading}}</h2>
-        <form class="form-horizontal" name="homeMovieForm" role="form">
-            <fieldset>
-                <div class="panel panel-primary">
-                    <!-- Default panel contents -->
-                    <div class="panel-heading">
-                        <b>Movies</b>
-                    </div>
-                    <div class="panel-body">
-                        <table class="table table-hover table-striped table-condensed table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Movie Name</th>
-                                    <th>Director Name</th>
-                                    <th>Release Year</th>
-                                    <th>Reviews</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="i in data">
-                                    <td>
-                                        {{i.MovieName}}
-                                    </td>
-                                    <td>
-                                        {{i.DirectorName}}
-                                    </td>
-                                    <td>
-                                        {{i.ReleaseYear}}
-                                    </td>
-                                    <td>
-                                        {{i.NoOfReviews}}
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-
-            </fieldset>
-        </form>
-    </div>
-
-</div>
+@* Individual Views will get injected from here *@
+<div ng-view></div>

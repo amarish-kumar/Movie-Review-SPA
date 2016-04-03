@@ -1,13 +1,14 @@
 ﻿<!DOCTYPE html>
-<html ng-app="moviesApp">
+<html ng-app="@ViewBag.InitModule">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>@ViewData["Title"] - MovieReviewSPA.Web</title>
 
         <environment names="Development">
-            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-            <link rel="stylesheet" href="~/css/site.css" />
+            <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"/>
+            <link rel="stylesheet" href="~/css/site.css"/>
         </environment>
         <environment names="Staging,Production">
             <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
@@ -51,6 +52,7 @@
             <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
             <script src="~/js/site.js" asp-append-version="true"></script>
             <script src="~/lib/angular/angular.js"></script>
+            <script src="~/lib/angular-route/angular-route.js"></script>
             <script src="~/js/app/app.js"></script>
             <script src="~/js/app/moviesController.js"></script>
         </environment>
@@ -65,6 +67,7 @@
             </script>
             <script src="~/js/site.min.js" asp-append-version="true"></script>
             <script src="~/lib/angular/angular.min.js"></script>
+            <script src="~/lib/angular-route/angular-route.min.js"></script>
             <script src="~/js/app/app.js"></script>
             <script src="~/js/app/moviesController.js"></script>
         </environment>
