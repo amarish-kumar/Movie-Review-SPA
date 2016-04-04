@@ -31,9 +31,9 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-controller="Home" asp-action="About">Movies</a></li>
-                        <li><a asp-controller="Home" asp-action="Contact">Movie Reviews</a></li>
+                        <li><a href="#/">Home</a></li>
+                        <li><a href="#/movies">Movies</a></li>
+                        <li><a href="#/movieReviews">Movie Reviews</a></li>
                     </ul>
                     @await Html.PartialAsync("_LoginPartial")
                 </div>
@@ -55,6 +55,8 @@
             <script src="~/lib/angular-route/angular-route.js"></script>
             <script src="~/js/app/app.js"></script>
             <script src="~/js/app/moviesController.js"></script>
+            <script src="~/js/app/moviesListController.js"></script>
+            <script src="~/js/app/newMovieController.js"></script>
         </environment>
         <environment names="Staging,Production">
             <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"

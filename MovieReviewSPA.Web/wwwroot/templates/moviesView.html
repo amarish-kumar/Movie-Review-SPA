@@ -1,0 +1,55 @@
+﻿<br />
+<div class="container" align="center">
+    <button type="button" id="addMovie" value="addMovie" ng-click="addMovie()">
+        <a data-ng-href="#/newMovie"><i class="btn btn-primary fa fa-plus"></i> <strong>Add Movie</strong></a>
+    </button>
+</div>
+
+<br />
+
+<div id="loader" style="display: none" align="center">
+    <i class="fa fa-cog fa-fw fa-spin fa-2x"> </i> Getting Movies
+</div>
+<br />
+<form class="form-horizontal" name="movieForm" role="form">
+    <fieldset>
+        <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading"><b>Movies</b></div>
+            <div class="panel-body">
+                <table class="table table-hover table-striped table-condensed table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Movie Name</th>
+                            <th>Director Name</th>
+                            <th>Release Year</th>
+                            <th>Edit</th>
+                            <th>Reviews</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="i in data">
+                            <td>
+                                {{i.MovieName}}
+                            </td>
+                            <td>
+                                {{i.DirectorName}}
+                            </td>
+                            <td>
+                                {{i.ReleaseYear}}
+                            </td>
+                            <td>
+                                <a data-ng-href="#/editMovie/{{i.id}}"><i class="btn btn-primary fa fa-wrench"></i> <strong> Edit</strong></a>
+                            </td>
+                            <td>
+                                <a data-ng-href="#/reviews/{{i.id}}"><i class="btn btn-primary fa fa-navicon"></i> <strong> Reviews</strong></a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
