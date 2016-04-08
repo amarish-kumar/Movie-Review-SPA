@@ -4,9 +4,9 @@
     "use strict";
     angular.module("moviesApp").controller("moviesController", moviesController);
 
-    function moviesController($scope,$http) {
+    function moviesController($scope, movieDataService) {
         $scope.heading = "Movie Reviews App";
-        $scope.data = [];
+        $scope.data = movieDataService;
         
         //Making Spinner On
         $('#loader').show();
@@ -14,12 +14,13 @@
         //Setting the delay 
         setTimeout(function() {
             //Fetching the movie
-            $http.get("api/movies")
-                .then(function(result) {
+            movieDataService.getMovies()
+                .then(function() {
                     //Success
-                    angular.copy(result.data, $scope.data);
+                    toastr.success("Movies Fetched Successfully");
                 }, function() {
-                    console.log("Error Fetching Moives!");
+                    //Error
+                    toastr.error("Error in fetching movies");
                 }).finally(function() {
                     $('#loader').hide();
                 });

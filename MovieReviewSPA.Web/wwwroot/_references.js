@@ -4,6 +4,7 @@
 /// <reference path="js/app/moviesController.js" />
 /// <reference path="js/app/movieslistcontroller.js" />
 /// <reference path="js/app/newmoviecontroller.js" />
+/// <reference path="js/service/moviedataservice.js" />
 /// <reference path="js/site.js" />
 /// <reference path="lib/angular/angular.js" />
 /// <reference path="lib/angular-route/angular-route.js" />
