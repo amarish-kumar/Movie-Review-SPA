@@ -7,7 +7,7 @@
 
     function movieDataService($http,$q) {
         var _movies = [];
-
+        var _reviews = [];
         //Function to retrieve movies
         var _getMovies=function() {
             //For resolving the promise
@@ -84,14 +84,67 @@
             return deferred.promise;
         }
 
+        //Fetching a Review by ID
+        var _getReviewById = function (Id) {
+            var deferred = $q.defer();
+            _getReviews(Id)
+                .then(function () {
+                    //Success
+                    if (_reviews) {
+                        deferred.resolve(_reviews);
+                    } else {
+                        deferred.reject();
+                    }
+                }, function () {
+                    //Error
+                    deferred.reject();
+                });
+            return deferred.promise;
+        }
+
+        //Fetching Reviews
+        var _getReviews = function (Id) {
+            var deferred = $q.defer();
+            $http.get('api/MovieReviews/' + Id)
+                .then(function (result) {
+                    //Success
+                    angular.copy(result.data, _reviews);
+                    deferred.resolve();
+                }, function () {
+                    //Error
+                    deferred.reject();
+                });
+            return deferred.promise;
+        }
+
+        //Adding Review
+        var _addReview = function (MovieId, newReview) {
+            var deferred = $q.defer();
+            $http.post('/api/MovieReviews/' + MovieId, newReview)
+                .then(function () {
+                    //success
+                    deferred.resolve();
+                },
+                    function () {
+                        //error
+                        deferred.reject();
+                    });
+            return deferred.promise;
+        }
+
+
 
         return {
             movies: _movies,
+            reviews:_reviews,
             getMovies: _getMovies,
             addMovie: _addMovie,
             getMovieById: _getMovieById,
             movieEdit: _movieEdit,
-            removeMovie: _removeMovie
+            removeMovie: _removeMovie,
+            getReviewById: _getReviewById,
+            getReviews: _getReviews,
+            addReview:_addReview
         };
     }
 }());

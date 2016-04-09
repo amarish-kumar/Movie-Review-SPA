@@ -53,8 +53,8 @@ namespace MovieReviewSPA.Web.Controllers.API
 
         // Create a new review
         // POST /api/MovieReviews
-        [HttpPost("")]
-        public int Post(MovieReview review, int Id)
+        [HttpPost("{id}")]
+        public int Post(int Id, [FromBody]MovieReview review)
         {
             review.MovieId = Id;
             UOW.MovieReviews.Add(review);
@@ -65,7 +65,7 @@ namespace MovieReviewSPA.Web.Controllers.API
 
         //Delete a review
         //Delete /api/MovieReviews/5
-        [HttpDelete("")]
+        [HttpDelete("{id}")]
         public HttpResponseMessage Delete(int id)
         {
             UOW.MovieReviews.Delete(id);

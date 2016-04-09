@@ -1,0 +1,66 @@
+﻿<br />
+<div class="container" align="center">
+    <button type="button" id="addReview" value="addReview">
+        <i class="fa fa-plus btn btn-link"><a data-ng-href="#/newReview/{{MovieId}}"> Add New Review</a> </i>
+    </button>
+
+</div>
+
+<br />
+<div>
+
+    <div class="row">
+
+        <div id="loader" style="display: none" align="center">
+            <i class="fa fa-cog fa-fw fa-spin fa-2x"> </i> Getting Reviews
+        </div>
+
+        <div align="center">
+            <strong> No of Reviews:- {{reviews.length}}</strong>
+        </div>
+        <br />
+        <form class="form-horizontal" name="reviewsForm" role="form">
+            <fieldset>
+                <div class="panel panel-primary">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading"><b>Reviews</b></div>
+                    <div class="panel-body">
+                        <table class="table table-hover table-striped table-condensed table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Reviewer Name</th>
+                                    <th>Reviewer Comments</th>
+                                    <th>Reviewer Rating</th>
+                                    <th>Edit</th>
+                                    <th>Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="i in reviews">
+                                    <td>
+                                        {{i.ReviewerName}}
+                                    </td>
+                                    <td>
+                                        {{i.ReviewerComments}}
+                                    </td>
+                                    <td>
+                                        {{i.ReviewerRating}}
+                                    </td>
+                                    <td>
+                                        <a data-ng-href="#/editReview/{{i.Id}}"><i class="btn btn-primary fa fa-wrench"></i> <strong> Edit</strong></a>
+                                    </td>
+                                    <td>
+                                        <a><i class="btn btn-danger fa fa-remove" data-ng-click="deleteReview(i.Id)"><strong> Remove</strong></i></a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </fieldset>
+        </form>
+    </div>
+</div>

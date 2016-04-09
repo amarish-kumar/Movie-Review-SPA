@@ -28,6 +28,17 @@
             controller: "deleteMovieController"
         });
 
+        $routeProvider.when("/reviews/:Id", {
+            controller: "reviewsController",
+            templateUrl: "/templates/reviewsView.html"
+        });
+
+        $routeProvider.when("/newReview/:Id", {
+            controller: "newReviewController",
+            templateUrl: "/templates/newReviewView.html"
+        });
+
+
         $routeProvider.otherwise({ templateUrl: "templates/errorView.html" });
         });
 })();
