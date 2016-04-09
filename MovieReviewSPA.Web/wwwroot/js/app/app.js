@@ -19,6 +19,15 @@
             templateUrl: "templates/newMovieView.html"
         });
        
+        $routeProvider.when("/editMovie/:Id", {
+            controller: "editMovieController",
+            templateUrl: "templates/editMovieView.html"
+        });
+
+        $routeProvider.when("/deleteMovie/:Id", {
+            controller: "deleteMovieController"
+        });
+
         $routeProvider.otherwise({ templateUrl: "templates/errorView.html" });
         });
 })();

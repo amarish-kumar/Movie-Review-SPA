@@ -4,23 +4,27 @@
 
     angular.module("moviesApp").controller("newMovieController", newMovieController);
 
-    function newMovieController($scope, $http, $window) {
+    function newMovieController($scope, movieDataService, $window) {
         $scope.newMovie = {};
-        $scope.save = function () {
-            $http.post('api/movies', $scope.newMovie)
-                .then(function (result) {
-                    //Success
-                    var newMovie = result.data;
-                    toastr.success("Movie Saved Successfully");
 
-                    //Once Saved successfully return to the movies page 
-                    $window.location = "#/movies";
-
-                }, function () {
-                    //Error
-                    toastr.error("Unable to save the movie");
-                });
-        }
-
+       //Setting the delay 
+        setTimeout(function () {
+            $scope.save = function () {
+                //Making Spinner On
+                $('#loader').show();
+                movieDataService.addMovie($scope.newMovie)
+                    .then(function () {
+                        //Success
+                        toastr.success("Movie Saved Successfully");
+                        //Once Saved successfully return to the movies page 
+                        $window.location = "#/movies";
+                    }, function () {
+                        //Error
+                        toastr.error("Error in saving Movie");
+                    }).then(function () {
+                        $('#loader').hide();
+                    });
+            }
+        }, 1000);
     }
 }());

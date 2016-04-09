@@ -25,6 +25,7 @@
                             <th>Release Year</th>
                             <th>Edit</th>
                             <th>Reviews</th>
+                            <th>Remove</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,10 +40,13 @@
                                 {{i.ReleaseYear}}
                             </td>
                             <td>
-                                <a data-ng-href="#/editMovie/{{i.id}}"><i class="btn btn-primary fa fa-wrench"></i> <strong> Edit</strong></a>
+                                <a data-ng-href="#/editMovie/{{i.Id}}"><i class="btn btn-primary fa fa-wrench"></i> <strong> Edit</strong></a>
                             </td>
                             <td>
-                                <a data-ng-href="#/reviews/{{i.id}}"><i class="btn btn-primary fa fa-navicon"></i> <strong> Reviews</strong></a>
+                                <a data-ng-href="#/reviews/{{i.Id}}"><i class="btn btn-primary fa fa-navicon"></i> <strong> Reviews</strong></a>
+                            </td>
+                            <td>
+                                <a><i class="btn btn-danger fa fa-remove" data-ng-click="deleteMovie(i.Id)"><strong> Remove</strong></i></a>
                             </td>
                         </tr>
 

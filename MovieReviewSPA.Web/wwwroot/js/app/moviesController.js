@@ -17,6 +17,7 @@
             movieDataService.getMovies()
                 .then(function() {
                     //Success
+                    console.log($scope.data);
                     toastr.success("Movies Fetched Successfully");
                 }, function() {
                     //Error

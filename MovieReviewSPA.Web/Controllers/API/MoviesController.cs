@@ -4,6 +4,7 @@ using MovieReviewSPA.Model;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web.Http;
 using MovieReviewSPA.Web.ViewModels.Movie;
 using Microsoft.Data.Entity;
 
@@ -48,6 +49,15 @@ namespace MovieReviewSPA.Web.Controllers.API
                 });
 
             return model;
+        }
+
+        // GET api/movies/1
+        [HttpGet("{id}")]
+        public Movie Get(int id)
+        {
+            var movie = UOW.Movies.GetById(id);
+            if (movie != null) return movie;
+            throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
         }
 
         // Update an existing movie
