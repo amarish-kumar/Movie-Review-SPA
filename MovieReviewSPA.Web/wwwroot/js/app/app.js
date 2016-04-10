@@ -2,7 +2,7 @@
 
 (function() {
     "use strict";
-    angular.module("moviesApp", ["ngRoute"])
+    angular.module("moviesApp", ["ngRoute", "angularUtils.directives.dirPagination"])
     .config(function ($routeProvider) {
         $routeProvider.when("/", {
             controller: "moviesController",

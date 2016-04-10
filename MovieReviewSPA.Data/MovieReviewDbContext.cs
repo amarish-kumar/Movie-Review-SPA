@@ -26,5 +26,6 @@ namespace MovieReviewSPA.Data
 
             base.OnConfiguring(optionsBuilder);
         }
+
     }
 }

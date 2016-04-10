@@ -13,10 +13,19 @@
 <br />
 <form class="form-horizontal" name="movieForm" role="form">
     <fieldset>
+        <div id="custom-search-input">
+            <div class="input-group col-md-12">
+                <input type="text" data-ng-model="query" class="search-query form-control" placeholder="Search" />
+            </div>
+        </div>
+        <br />
         <div class="panel panel-primary">
             <!-- Default panel contents -->
-            <div class="panel-heading"><b>Movies</b></div>
+            <div class="panel-heading">
+                <b>Movies</b>
+            </div>
             <div class="panel-body">
+                <dir-pagination-controls></dir-pagination-controls>
                 <table class="table table-hover table-striped table-condensed table-bordered">
                     <thead>
                         <tr>
@@ -29,7 +38,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr data-ng-repeat="i in data.movies">
+                        <!--<tr data-ng-repeat="i in data.movies">-->
+                        <tr dir-paginate="i in data.movies | filter: query | itemsPerPage:7">
                             <td>
                                 {{i.MovieName}}
                             </td>
@@ -52,6 +62,7 @@
 
                     </tbody>
                 </table>
+                <dir-pagination-controls></dir-pagination-controls>
             </div>
         </div>
     </fieldset>

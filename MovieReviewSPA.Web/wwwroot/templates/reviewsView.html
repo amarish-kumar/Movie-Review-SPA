@@ -21,41 +21,51 @@
         <br />
         <form class="form-horizontal" name="reviewsForm" role="form">
             <fieldset>
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        <input type="text" data-ng-model="query" class="search-query form-control" placeholder="Search" />
+                    </div>
+                </div>
+                <br />
                 <div class="panel panel-primary">
                     <!-- Default panel contents -->
-                    <div class="panel-heading"><b>Reviews</b></div>
+                    <div class="panel-heading"><b>Reviews</b>
+                    </div>
                     <div class="panel-body">
+                        <dir-pagination-controls></dir-pagination-controls>
                         <table class="table table-hover table-striped table-condensed table-bordered">
                             <thead>
-                                <tr>
-                                    <th>Reviewer Name</th>
-                                    <th>Reviewer Comments</th>
-                                    <th>Reviewer Rating</th>
-                                    <th>Edit</th>
-                                    <th data-ng-show="canRemove">Remove</th>
-                                </tr>
+                            <tr>
+                                <th>Reviewer Name</th>
+                                <th>Reviewer Comments</th>
+                                <th>Reviewer Rating</th>
+                                <th>Edit</th>
+                                <th data-ng-show="canRemove">Remove</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="i in reviews">
-                                    <td>
-                                        {{i.ReviewerName}}
-                                    </td>
-                                    <td>
-                                        {{i.ReviewerComments}}
-                                    </td>
-                                    <td>
-                                        {{i.ReviewerRating}}
-                                    </td>
-                                    <td>
-                                        <a data-ng-href="#/editReview/{{i.Id}}"><i class="btn btn-primary fa fa-wrench"></i> <strong> Edit</strong></a>
-                                    </td>
-                                    <td data-ng-show="canRemove">
-                                        <a><i class="btn btn-danger fa fa-remove" data-ng-click="deleteReview(i.Id)"><strong> Remove</strong></i></a>
-                                    </td>
-                                </tr>
+                            <!--<tr ng-repeat="i in reviews">-->
+                            <tr dir-paginate="i in reviews | filter: query | itemsPerPage:7">
+                                <td>
+                                    {{i.ReviewerName}}
+                                </td>
+                                <td>
+                                    {{i.ReviewerComments}}
+                                </td>
+                                <td>
+                                    {{i.ReviewerRating}}
+                                </td>
+                                <td>
+                                    <a data-ng-href="#/editReview/{{i.Id}}"><i class="btn btn-primary fa fa-wrench"></i> <strong> Edit</strong></a>
+                                </td>
+                                <td data-ng-show="canRemove">
+                                    <a><i class="btn btn-danger fa fa-remove" data-ng-click="deleteReview(i.Id)"><strong> Remove</strong></i></a>
+                                </td>
+                            </tr>
 
                             </tbody>
                         </table>
+                        <dir-pagination-controls></dir-pagination-controls>
                     </div>
                 </div>
 
