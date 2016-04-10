@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+@using System.Threading.Tasks
+@using System.Web
+<!DOCTYPE html>
 <html ng-app="@ViewBag.InitModule">
 <head>
     <meta charset="utf-8" />
@@ -39,7 +42,7 @@
                     <li><a href="#/movieReviews">Movie Reviews</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
-            </div>
+               </div>
         </div>
     </div>
     <div class="container body-content">
@@ -66,6 +69,7 @@
         <script src="~/js/app/editMovieController.js"></script>
         <script src="~/js/app/reviewsController.js"></script>
         <script src="~/js/app/newReviewController.js"></script>
+        <script src="~/js/app/editReviewController.js"></script>
     </environment>
     <environment names="Staging,Production">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
@@ -89,8 +93,26 @@
         <script src="~/js/app/editMovieController.js"></script>
         <script src="~/js/app/reviewsController.js"></script>
         <script src="~/js/app/newReviewController.js"></script>
+        <script src="~/js/app/editReviewController.js"></script>
     </environment>
 
     @RenderSection("scripts", required: false)
+    @{
+        var user = (ClaimsIdentity)User.Identity;
+        ViewBag.Name = user.Name;
+        if (ViewBag.Name != null)
+        {
+            ViewBag.canRemove = "true";
+        }
+        else
+        {
+            ViewBag.canRemove = "false";
+        }
+    }
+   
+<!-- Get Server Data -->
+    <script>
+        angular.module("moviesApp").value("canRemove", @ViewBag.canRemove);
+    </script>
 </body>
 </html>

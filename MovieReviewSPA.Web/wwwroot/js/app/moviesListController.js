@@ -4,9 +4,10 @@
     "use strict";
     angular.module("moviesApp").controller("moviesListController", moviesListController);
 
-    function moviesListController($scope, movieDataService, $window) {
+    function moviesListController($scope, movieDataService, $window, canRemove) {
         $scope.heading = "Movie Reviews App";
         $scope.data = movieDataService;
+        $scope.canRemove = canRemove;
 
         //Making Spinner On
         $('#loader').show();
@@ -17,8 +18,7 @@
             movieDataService.getMovies()
                 .then(function () {
                     //Success
-                    console.log($scope.data);
-                    toastr.success("Movies Fetched Successfully");
+                   toastr.success("Movies Fetched Successfully");
                 }, function () {
                     toastr.error("Error in fetching movies");
                 }).finally(function () {

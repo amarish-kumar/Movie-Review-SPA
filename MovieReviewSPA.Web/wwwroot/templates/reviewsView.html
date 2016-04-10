@@ -32,7 +32,7 @@
                                     <th>Reviewer Comments</th>
                                     <th>Reviewer Rating</th>
                                     <th>Edit</th>
-                                    <th>Remove</th>
+                                    <th data-ng-show="canRemove">Remove</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,7 +49,7 @@
                                     <td>
                                         <a data-ng-href="#/editReview/{{i.Id}}"><i class="btn btn-primary fa fa-wrench"></i> <strong> Edit</strong></a>
                                     </td>
-                                    <td>
+                                    <td data-ng-show="canRemove">
                                         <a><i class="btn btn-danger fa fa-remove" data-ng-click="deleteReview(i.Id)"><strong> Remove</strong></i></a>
                                     </td>
                                 </tr>

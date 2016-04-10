@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.Data.Entity;
 using Microsoft.Extensions.Logging;
 using MovieReviewSPA.Web.Models;
 using MovieReviewSPA.Web.Services;
@@ -64,7 +61,8 @@ namespace MovieReviewSPA.Web.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation(1, "User logged in.");
-                    return RedirectToLocal(returnUrl);
+                    //Set the value to true, for successful login
+                  return RedirectToLocal(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
                 {

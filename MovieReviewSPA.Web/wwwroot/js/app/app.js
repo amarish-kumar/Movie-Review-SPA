@@ -38,6 +38,10 @@
             templateUrl: "/templates/newReviewView.html"
         });
 
+        $routeProvider.when("/editReview/:Id", {
+            controller: "editReviewController",
+            templateUrl: "/templates/editReviewView.html"
+        });
 
         $routeProvider.otherwise({ templateUrl: "templates/errorView.html" });
         });

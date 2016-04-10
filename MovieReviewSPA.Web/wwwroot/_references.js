@@ -3,6 +3,7 @@
 /// <reference path="js/app/app.js" />
 /// <reference path="js/app/deletemoviecontroller.js" />
 /// <reference path="js/app/editmoviecontroller.js" />
+/// <reference path="js/app/editreviewcontroller.js" />
 /// <reference path="js/app/moviesController.js" />
 /// <reference path="js/app/movieslistcontroller.js" />
 /// <reference path="js/app/newmoviecontroller.js" />

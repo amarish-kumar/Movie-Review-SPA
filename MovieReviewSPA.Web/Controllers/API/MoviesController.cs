@@ -5,12 +5,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Microsoft.AspNet.Authorization;
 using MovieReviewSPA.Web.ViewModels.Movie;
 using Microsoft.Data.Entity;
 
 namespace MovieReviewSPA.Web.Controllers.API
 {
-    [Route("api/[controller]")]
+   [Route("api/[controller]")]
     public class MoviesController : Controller
     {
         private IMovieReviewUow UOW;
@@ -82,6 +83,7 @@ namespace MovieReviewSPA.Web.Controllers.API
 
 
         // DELETE api/movies/5
+        [Authorize]
         [HttpDelete("{id}")]
         public HttpResponseMessage Delete(int id)
         {

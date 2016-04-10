@@ -68,7 +68,7 @@ namespace MovieReviewSPA.Web
             services.AddScoped<RepositoryFactories,RepositoryFactories>();
             services.AddScoped<IRepositoryProvider, RepositoryProvider>();
             services.AddScoped<IMovieReviewUow, MovieReviewUow>();
-        }
+          }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, InitialData seedDbContext)

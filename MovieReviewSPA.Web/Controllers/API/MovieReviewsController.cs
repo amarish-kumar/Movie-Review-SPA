@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Mvc;
 using MovieReviewSPA.Data.Contracts;
 using MovieReviewSPA.Model;
@@ -65,6 +66,7 @@ namespace MovieReviewSPA.Web.Controllers.API
 
         //Delete a review
         //Delete /api/MovieReviews/5
+        [Authorize]
         [HttpDelete("{id}")]
         public HttpResponseMessage Delete(int id)
         {

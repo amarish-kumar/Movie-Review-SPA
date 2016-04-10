@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using System.Security.Claims;
+using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Mvc;
 using MovieReviewSPA.Data;
 
@@ -17,7 +19,7 @@ namespace MovieReviewSPA.Web.Controllers
             var movies = _dbContext.Movies.ToList();
             return View(movies);
         }
-
+       
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

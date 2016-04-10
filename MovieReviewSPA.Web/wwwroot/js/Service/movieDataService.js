@@ -132,7 +132,48 @@
             return deferred.promise;
         }
 
+        //Get Review by ReviewerID
+        var _getReviewByReviewerId = function (Id) {
+            var deferred = $q.defer();
+            $http.get('api/Lookups/getbyreviewerid?id=' + Id)
+                .then(function (result) {
+                    //Success
+                    deferred.resolve(result.data);
+                }, function () {
+                    //Error
+                    deferred.reject();
+                });
+            return deferred.promise;
+        };
 
+        //Updating Review
+        var _updateReview = function (newReview) {
+            var deferred = $q.defer();
+            $http.put('api/MovieReviews/', newReview)
+                .then(function () {
+                    //Success
+                    deferred.resolve();
+                }, function () {
+                    deferred.reject();
+                });
+            return deferred.promise;
+        };
+
+        //Deleting the Review
+        var _removeReview = function (Id) {
+            var deferred = $q.defer();
+
+            $http.delete('/api/MovieReviews/' + Id)
+                .then(function () {
+                    //success
+                    deferred.resolve();
+                },
+                    function () {
+                        //error
+                        deferred.reject();
+                    });
+            return deferred.promise;
+        }
 
         return {
             movies: _movies,
@@ -144,7 +185,10 @@
             removeMovie: _removeMovie,
             getReviewById: _getReviewById,
             getReviews: _getReviews,
-            addReview:_addReview
+            addReview: _addReview,
+            getReviewByReviewerId: _getReviewByReviewerId,
+            updateReview: _updateReview,
+            removeReview: _removeReview
         };
     }
 }());

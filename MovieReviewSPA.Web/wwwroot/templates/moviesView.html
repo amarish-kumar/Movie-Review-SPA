@@ -25,7 +25,7 @@
                             <th>Release Year</th>
                             <th>Edit</th>
                             <th>Reviews</th>
-                            <th>Remove</th>
+                            <th data-ng-show="canRemove">Remove</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,7 +45,7 @@
                             <td>
                                 <a data-ng-href="#/reviews/{{i.Id}}"><i class="btn btn-primary fa fa-navicon"></i> <strong> Reviews</strong></a>
                             </td>
-                            <td>
+                            <td data-ng-show="canRemove">
                                 <a><i class="btn btn-danger fa fa-remove" data-ng-click="deleteMovie(i.Id)"><strong> Remove</strong></i></a>
                             </td>
                         </tr>
