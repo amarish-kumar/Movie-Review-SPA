@@ -53,6 +53,34 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bower_components\jasmine\.bower.json" />
+    <None Include="bower_components\jasmine\bower.json" />
+    <None Include="bower_components\jasmine\CONTRIBUTING.md" />
+    <None Include="bower_components\jasmine\GOALS_2.0.md" />
+    <None Include="bower_components\jasmine\MANIFEST.in" />
+    <None Include="bower_components\jasmine\MIT.LICENSE" />
+    <None Include="bower_components\jasmine\package.json" />
+    <None Include="bower_components\jasmine\README.md" />
+    <None Include="bower_components\jasmine\RELEASE.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bower_components\jasmine\images\jasmine-horizontal.png" />
+    <Content Include="bower_components\jasmine\images\jasmine-horizontal.svg" />
+    <Content Include="bower_components\jasmine\images\jasmine_favicon.png" />
+    <Content Include="bower_components\jasmine\lib\console\console.js" />
+    <Content Include="bower_components\jasmine\lib\jasmine-core.js" />
+    <Content Include="bower_components\jasmine\lib\jasmine-core\boot.js" />
+    <Content Include="bower_components\jasmine\lib\jasmine-core\example\node_example\lib\jasmine_examples\Player.js" />
+    <Content Include="bower_components\jasmine\lib\jasmine-core\example\node_example\lib\jasmine_examples\Song.js" />
+    <Content Include="bower_components\jasmine\lib\jasmine-core\jasmine-html.js" />
+    <Content Include="bower_components\jasmine\lib\jasmine-core\jasmine.css" />
+    <Content Include="bower_components\jasmine\lib\jasmine-core\jasmine.js" />
+    <Content Include="bower_components\jasmine\lib\jasmine-core\json2.js" />
+    <Content Include="bower_components\jasmine\lib\jasmine-core\node_boot.js" />
+    <Content Include="bower_components\jasmine\requirements.txt" />
+    <Content Include="Client Tests\MyAppTest.js" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
