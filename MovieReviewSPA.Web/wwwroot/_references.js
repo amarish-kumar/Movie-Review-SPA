@@ -14,6 +14,7 @@
 /// <reference path="js/service/moviedataservice.js" />
 /// <reference path="js/site.js" />
 /// <reference path="lib/angular/angular.js" />
+/// <reference path="lib/angular-mocks/angular-mocks.js" />
 /// <reference path="lib/angular-route/angular-route.js" />
 /// <reference path="lib/angular-utils-pagination/dirpagination.js" />
 /// <reference path="lib/bootbox.js/bootbox.js" />

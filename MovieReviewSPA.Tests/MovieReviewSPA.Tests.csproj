@@ -79,8 +79,10 @@
     <Content Include="bower_components\jasmine\lib\jasmine-core\json2.js" />
     <Content Include="bower_components\jasmine\lib\jasmine-core\node_boot.js" />
     <Content Include="bower_components\jasmine\requirements.txt" />
-    <Content Include="Client Tests\MyAppTest.js" />
+    <Content Include="Client Tests\MovieReviewTests.js" />
+    <Content Include="Client Tests\MovieTests.js" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
