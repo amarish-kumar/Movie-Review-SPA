@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
+using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
@@ -79,12 +77,17 @@ namespace MovieReviewSPA.Web
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
+                loggerFactory.AddDebug(LogLevel.Error);
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+                app.UseRuntimeInfoPage();
             }
             else
             {
+                loggerFactory.AddDebug(LogLevel.Error);
+                app.UseDeveloperExceptionPage();
                 app.UseExceptionHandler("/Home/Error");
+                
 
                 // For more details on creating database during deployment see http://go.microsoft.com/fwlink/?LinkID=615859
                 try
@@ -106,14 +109,27 @@ namespace MovieReviewSPA.Web
             app.UseIdentity();
 
             // To configure external authentication please see http://go.microsoft.com/fwlink/?LinkID=532715
-
+            try { 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            }
+            catch (Exception ex)
+            {
+                app.Run(async context =>
+                {
+                    context.Response.ContentType = "text/plain";
+                    await context.Response.WriteAsync(ex.Message);
+                });
+            }
 
+            app.UseDatabaseErrorPage(options =>
+            {
+                options.EnableAll();
+            });
             //Initiating from here
             seedDbContext.SeedData();
         }

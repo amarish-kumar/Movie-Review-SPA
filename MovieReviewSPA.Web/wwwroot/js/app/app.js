@@ -43,6 +43,16 @@
             templateUrl: "/templates/editReviewView.html"
         });
 
+        $routeProvider.when("/aboutApp", {
+            controller: "",
+            templateUrl: "/templates/aboutApp.html"
+        });
+
+        $routeProvider.when("/aboutMe", {
+            controller: "",
+            templateUrl: "/templates/aboutMe.html"
+        });
+
         $routeProvider.otherwise({ templateUrl: "templates/errorView.html" });
         });
 })();
