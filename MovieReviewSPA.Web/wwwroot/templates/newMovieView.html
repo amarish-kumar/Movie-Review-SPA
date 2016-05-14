@@ -1,44 +1,50 @@
-﻿<br/>
+﻿<br />
 <div id="loader" style="display: none" align="center">
     <i class="fa fa-cog fa-fw fa-spin fa-2x"> </i> Saving Movie
 </div>
 <form class="form-horizontal" name="newMovieForm" novalidate role="form" ng-submit="save()">
-    <fieldset>
-        <legend>Enter New Movie</legend>
-        <div class="form-group">
-            <label for="MovieName" class="col-sm-3 control-label">Movie Name</label>
-            <div class="col-sm-9">
-                <input type="text" id="MovieName" name="MovieName" class="form-control" ng-model="newMovie.MovieName" required ng-minlength="5" />
-                <span class="help-block" ng-show="newMovieForm.MovieName.$error.required"><i class="fa fa-star"></i></span>
-                <span class="input-validation-error" ng-show="newMovieForm.MovieName.$error.minlength">Please enter 5 Charcters Title</span>
-            </div>
-        </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading"><b>Add Movie</b></div>
+        <div class="panel-body">
+            <fieldset>
+                <legend>Enter New Movie</legend>
+                <div class="form-group">
+                    <label for="MovieName" class="col-sm-3 control-label">Movie Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="MovieName" name="MovieName" class="form-control" ng-model="newMovie.MovieName" required ng-minlength="5" />
+                        <span class="help-block" ng-show="newMovieForm.MovieName.$error.required"><i class="fa fa-star"></i></span>
+                        <span class="input-validation-error" ng-show="newMovieForm.MovieName.$error.minlength">Please enter 5 Charcters Title</span>
+                    </div>
+                </div>
 
-        <div class="form-group">
-            <label for="DirectorName" class="col-sm-3 control-label">Director Name</label>
-            <div class="col-sm-9">
-                <input type="text" id="DirectorName" name="DirectorName" class="form-control" ng-model="newMovie.DirectorName" required ng-minlength="5" />
-                <span class="input-validation-error" ng-show="newMovieForm.DirectorName.$error.required"><i class="fa fa-star"></i></span>
-                <span class="input-validation-error" ng-show="newMovieForm.DirectorName.$error.minlength">Please enter 5 Charcters Name</span>
-            </div>
-        </div>
+                <div class="form-group">
+                    <label for="DirectorName" class="col-sm-3 control-label">Director Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="DirectorName" name="DirectorName" class="form-control" ng-model="newMovie.DirectorName" required ng-minlength="5" />
+                        <span class="input-validation-error" ng-show="newMovieForm.DirectorName.$error.required"><i class="fa fa-star"></i></span>
+                        <span class="input-validation-error" ng-show="newMovieForm.DirectorName.$error.minlength">Please enter 5 Charcters Name</span>
+                    </div>
+                </div>
 
-        <div class="form-group">
-            <label for="ReleaseYear" class="col-sm-3 control-label">Release Year</label>
-            <div class="col-sm-9">
-                <input type="text" id="ReleaseYear" name="ReleaseYear" class="form-control" ng-model="newMovie.ReleaseYear" required />
-                <span class="input-validation-error" ng-show="newMovieForm.ReleaseYear.$error.required"><i class="fa fa-star"></i></span>
-            </div>
-        </div>
+                <div class="form-group">
+                    <label for="ReleaseYear" class="col-sm-3 control-label">Release Year</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="ReleaseYear" name="ReleaseYear" class="form-control" ng-model="newMovie.ReleaseYear" required ng-pattern="/^(19\d{2})|(200\d)|(201[0-6])$/" />
+                        <span class="input-validation-error" ng-show="newMovieForm.ReleaseYear.$error.required"><i class="fa fa-star"></i></span>
+                        <span class="input-validation-error" ng-show="newMovieForm.ReleaseYear.$error.pattern">Please enter year between 1900-2016</span>
+                    </div>
+                </div>
 
-        <div class="container" style="padding-left: 300px;">
-            <button type="submit" id="addNewMovie" value="addNewMovie">
-                <i class="fa fa-plus btn btn-primary"> Add Movie</i>
-            </button>
+                <div class="container" style="padding-left: 300px;">
+                    <button type="submit" id="addNewMovie" value="addNewMovie" ng-disabled="newMovieForm.$invalid">
+                        <i class="fa fa-plus btn btn-primary"> Add Movie</i>
+                    </button>
 
-            <button type="button" id="cancelMovie" value="cancelMovie">
-                <i class="fa fa-undo btn btn-link"><a href="#/movies"> Cancel</a></i>
-            </button>
+                    <button type="button" id="cancelMovie" value="cancelMovie">
+                        <i class="fa fa-undo btn btn-link"><a href="#/movies"> Cancel</a></i>
+                    </button>
+                </div>
+            </fieldset>
         </div>
-    </fieldset>
+    </div>
 </form>
